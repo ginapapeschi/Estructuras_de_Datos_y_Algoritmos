@@ -23,7 +23,7 @@ class TablaHash:
         if not self.__tabla[indice].llena():
             self.__tabla[indice].insertarPorContenido(valor)
         else:
-            self.__overflow[indice].insertarPorContenido(valor)
+            self.__overflow.insertarPorContenido(valor)
 
     def busqueda(self, valor):
         indice = self.hashing(valor)

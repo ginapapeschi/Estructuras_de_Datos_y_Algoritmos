@@ -40,7 +40,7 @@ class TablaHash:
                 encontrado = True
             else:
                 indice = (indice + 1) % self.__tamaño
-            if indice == inicio:
-                tablaLlena = True
+                if indice == inicio:
+                    tablaLlena = True
         return encontrado
     
