@@ -227,9 +227,24 @@ class Arbol:
                     nodoActual = nodoActual.getDer()
         return camino
     
-    def cantidadNodos(self, nodo, cant):
+    def cantidadNodos(self, nodo, cant=0):
         if nodo:
             cant = self.cantidadNodos(nodo.getIzq(), cant)
             cant += 1
             cant = self.cantidadNodos(nodo.getDer(), cant)
+        return cant
+
+    def descendientesPorValor(self, valor):
+        nodo = self.buscar(self.__raiz, valor)
+        if nodo:
+            cant = self.contarDescendientes(nodo) - 1
+        else:
+            print("No está en el árbol")
+        return cant
+    
+    def contarDescendientes(self, nodo, cant=0):
+        if nodo:
+            cant = self.contarDescendientes(nodo.getDer(), cant)
+            cant += 1
+            cant = self.contarDescendientes(nodo.getIzq(), cant)
         return cant
